@@ -20,7 +20,7 @@ end
 
 get '/new' do
   "Signup to get started"
-  erb :new_user
+  erb :'/user/new_user'
 end
 
 
