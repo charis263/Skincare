@@ -1,6 +1,6 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development? #if development? means it'll only execute once in development stage and its for computer not for heroku
 require 'pry'
 require 'pg'
 require 'bcrypt'
@@ -8,7 +8,7 @@ require 'bcrypt'
 enable :sessions
 
 def run_sql(sql)
-  db = PG.connectPG.connect(ENV['DATABASE_URL'] || {dbname: 'skincare_app'})
+  db = PG.connect(ENV['DATABASE_URL'] || {dbname: 'skincare_app'})
   results = db.exec(sql)
   db.close
   return results

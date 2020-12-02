@@ -2,16 +2,22 @@ GEM
   remote: https://rubygems.org/
   specs:
     bcrypt (3.1.16)
+    coderay (1.1.3)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
+    method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
+    multi_json (1.15.0)
     multi_xml (0.6.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     pg (1.2.3)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
@@ -20,6 +26,12 @@ GEM
       mustermann (~> 1.0)
       rack (~> 2.2)
       rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
       tilt (~> 2.0)
     tilt (2.0.10)
 
@@ -30,7 +42,9 @@ DEPENDENCIES
   bcrypt
   httparty
   pg
+  pry
   sinatra
+  sinatra-contrib
 
 BUNDLED WITH
    2.1.4
