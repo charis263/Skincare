@@ -152,3 +152,7 @@ patch '/skinlog/:id' do
     redirect '/'
     #erb is html which is for get request thats why we have erb file. But post,delete and patch method is redirect 
 end
+
+get '/contact' do
+  erb :'/skinlog/contact'
+end
