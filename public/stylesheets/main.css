@@ -36,7 +36,7 @@
   
   /* Add a red background color to navbar links on hover */
   .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
+    background-color: rgb(231, 107, 116);
   }
   
   /* Dropdown content (hidden by default) */
@@ -75,9 +75,65 @@ header {
   font-style: oblique;
 }
 
+h1 {
+  font-size: 8em;
+  background-color: aqua;
+  border: 10px solid black;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 36px;
+  text-decoration:underline black;
+}
+
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 24px;
+  font-style: italic;
+}
+
+h5 {
+  font-size: 40px;
+  color: rgb(138, 79, 255);
+}
+
 .logo {
-  
+  width: 30%;
 }
 body {
 text-align: center;
 }
+
+button {
+  margin: 5px;
+  font-size: 20px;
+}
+
+a {
+  font-size: 24px;
+}
+
+.welcome {
+  font-size: 48px;
+  margin: 10px;
+  font-style: italic;
+}
+
+p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+
+a-24
+p-24
+h1 8em
+h2 48
+h3  36
+h4  24
+button -20px

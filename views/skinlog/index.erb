@@ -3,37 +3,14 @@
 
 <h2><%= error %></h2>
 
-
-<% skinlog.each do |skin_condition|%>
-    <h2>Skin condition: <%= skin_condition["skin_concern"] %></h2>
-    <h2>Day number: <%= skin_condition["day_no"] %></h2>
-        <input name="date_time" type="hidden" value="<%=Time.now.strftime("%d-%m-%y")%>">
-    <img src="<%= skin_condition["image_url"] %>" alt="">
-    <h2>Products applied: <%= skin_condition["products"] %></h2>
-    
-    <h2>Description: <%= skin_condition["description"] %></h2>
-    
-    <%if logged_in?%>
-        <h1><%= current_user()['first_name']%>'s skincare journey lolo </h1>
-        <br><a href="/skinlog/<%= skin_condition['id'] %>/edit">Edit</a>
-
-        <form action="/skinlog/<%= skin_condition['id'] %>" method="POST">
-        <input type="hidden" name="_method" value="delete">
-        <%#_method is a special name sinatra understand if we wanna overwrite the post method to delete (in value) instead%>
-        <button>DELETE</button>
-        </form>
-    <%end%>
-<% end %>
-
-
-
- <a href="/skinlog/new">Add new skinlog</a>
-
-
-
+<%if logged_in?%>
+  <h1><%= current_user()['first_name']%>'s skincare journey</h1>
+<%end%>
 
 <%if logged_in?%>
-    <h3>Welcome to skin blog! <%= current_user()['first_name']%></h3>
+    <h5 class="welcome">Welcome to skin blog, <%= current_user()['first_name']%>!</h5>
+
+    <a href="/skinlog/new">Add new skinlog</a>
     <form action="/" method="POST">
         <input type="hidden" name="_method" value="delete">
         <button>Logout</button>
@@ -52,3 +29,33 @@
     <a href="/signup/new">Signup</a>
 
 <%end%>
+
+<% skinlog.each do |skin_condition|%>
+
+    <h2>Day number: <%= skin_condition["day_no"] %></h2>
+    <h3>Skin condition: <%= skin_condition["skin_concern"] %></h3>
+
+    <img src="<%= skin_condition["image_url"] %>" alt="">
+    <h4>Products applied: <%= skin_condition["products"] %></h4>
+    
+    <p>Description:</p>
+    <p> <%= skin_condition["details"] %></p>
+
+    <p>Date: <%= time_date %></p>
+    
+    <%if logged_in?%>
+
+        <a href="/skinlog/<%= skin_condition['id'] %>/edit"><button>Edit</button></a>
+
+        <form action="/skinlog/<%= skin_condition['id'] %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <%#_method is a special name sinatra understand if we wanna overwrite the post method to delete (in value) instead%>
+        <button>DELETE</button>
+        </form>
+    <%end%>
+<% end %>
+
+
+
+
+
