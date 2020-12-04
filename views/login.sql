@@ -10,3 +10,8 @@
 
 
 </form>
+
+<form action="/" method="POST">
+    <button>Like</button>
+    <h2><%= like_button %></h2>
+</form>

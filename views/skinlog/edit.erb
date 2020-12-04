@@ -1,0 +1,10 @@
+<h1>Edit posts</h1>
+
+<form action="/skinlog/<%= skinlog[0]["id"] %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+    <input type="text" name="skin_concern" value="<%= skinlog[0]['skin_concern'] %>">
+
+    <input type="text" name="image_url" value="<%= skinlog[0]['image_url'] %>">
+<button>Update posts</button>
+
+</form>

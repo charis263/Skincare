@@ -1,0 +1,71 @@
+ <div class="topnav">
+ <div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%#ctrl + shift + r%>
+
+<h2><%= error %></h2>
+
+
+<% skinlog.each do |skin_condition|%>
+    <h2><%= skin_condition["skin_concern"] %></h2>
+    <h2><%= skin_condition["products"] %></h2>
+    <h2><%= skin_condition["date_time"] %></h2>
+    <h2><%= skin_condition["description"] %></h2>
+
+
+    <img src="<%= skin_condition["image_url"] %>" alt="">
+    <%if logged_in?%>
+        <h1><%= current_user()['first_name']%>'s skincare journey lolo </h1>
+        <br><a href="/skinlog/<%= skin_condition['id'] %>/edit">Edit</a>
+
+        <form action="/skinlog/<%= skin_condition['id'] %>" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <%#_method is a special name sinatra understand if we wanna overwrite the post method to delete (in value) instead%>
+        <button>DELETE</button>
+        </form>
+    <%end%>
+<% end %>
+
+
+
+ <a href="/skinlog/new">Add new skinlog</a>
+
+
+
+
+<%if logged_in?%>
+    <h3>Welcome to skin blog! <%= current_user()['first_name']%></h3>
+    <form action="/" method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <button>Logout</button>
+    </form>
+<%else%>
+    <form action="/" method="POST">
+    <label for="">Email</label>
+    <input type="email" name="email">
+
+    <label for="">Password</label>
+    <input type="password" name="password">
+
+    <button>Login</button>
+    </form>
+
+    <a href="/signup/new">Signup</a>
+
+<%end%>
